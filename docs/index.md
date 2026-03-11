@@ -1,212 +1,44 @@
-<div class="hero">
+---
+layout: home
+nav_order: 1
+title: Accueil
+permalink: /
+---
 
-<h1>DrawBot A4</h1>
+# Bienvenue sur notre documentation
 
-<p>Machine à dessiner automatisée<br>Projet d’ingénierie – Groupe 07</p>
+Bienvenue dans la documentation de notre machine à dessiner nommée **"DrawBot A4"**.
 
-<a class="btn" href="#project">Découvrir le projet</a>
+Ce site a pour objectif de présenter notre projet, d’expliquer son fonctionnement et de fournir les informations nécessaires pour comprendre, utiliser et reproduire la machine.
 
-</div>
+Vous trouverez ci-dessous les principales ressources liées au projet, notamment les modèles 3D et le code source.
 
+[Notre projet sur Onshape](https://cad.onshape.com/documents/e069393fab7baea4fdb59362/w/8d933c0b93562b63a8485ec1/e/e6b6ce24fbb03acfda1a5889){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Notre dépôt GitHub](https://github.com/Makerspace-Amiens/2026-MachineThatDraws-Groupe07/){: .btn .fs-5 .mb-4 .mb-md-0 }
 
-<div class="section fade" id="project">
-
-<h2>Le projet</h2>
-
-<p>
-Le DrawBot A4 est une machine capable de transformer des mouvements mécaniques
-en tracés graphiques précis sur une feuille A4.
-</p>
-
-<img src="images/drawbot.png">
-
-</div>
-
-
-<div class="section section-dark fade">
-
-<h2>Modèle 3D interactif</h2>
+{: .note }
+> Le modèle 3D et la vidéo de présentation seront mis à jour au fur et à mesure de l’avancement du projet.
 
 <iframe
-height="500"
+height="600"
 width="100%"
 src="https://modelembedder.net/embed?did=e069393fab7baea4fdb59362&wvm=v&wvmid=7b5e182986723ef343886fa5&eid=e6b6ce24fbb03acfda1a5889&elementType=ASSEMBLY"
 frameborder="0">
 </iframe>
 
-</div>
+## À propos du projet
 
+Le **DrawBot A4** est une machine à dessiner utilisant un bras articulé.  
+Ce projet nous permet d’apprendre et d’expérimenter la conception et la réalisation d’une machine répondant à un besoin concret : dessiner sur une feuille **A4**.
 
-<div class="section fade">
+La machine peut également fonctionner comme un **traceur 2D**, capable de reproduire des images ou du texte de manière relativement précise.
 
-<h2>Poster du projet</h2>
+## Poster du projet
 
-<img src="images/poster_drawbot_a4.png">
+![Poster du projet DrawBot A4](images/poster_drawbot_a4.png)
 
-</div>
+## Vidéo de présentation
 
-
-<div class="section section-dark fade">
-
-<h2>Vidéo de présentation</h2>
-
-<video controls width="70%">
+<video controls width="100%">
 <source src="images/video_drawbot_a4.mp4" type="video/mp4">
 </video>
-
-</div>
-
-<style>
-
-body{
-margin:0;
-font-family: system-ui, sans-serif;
-}
-
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background: linear-gradient(120deg,#0f172a,#1e293b);
-color:white;
-padding:40px;
-}
-
-.hero h1{
-font-size:70px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:22px;
-max-width:700px;
-opacity:0.9;
-}
-
-.btn{
-background:#6366f1;
-padding:14px 30px;
-border-radius:8px;
-color:white;
-text-decoration:none;
-margin-top:30px;
-font-weight:600;
-}
-
-.section{
-padding:120px 10%;
-text-align:center;
-}
-
-.section-dark{
-background:#0f172a;
-color:white;
-}
-
-.section img{
-max-width:900px;
-width:100%;
-border-radius:12px;
-box-shadow:0 10px 40px rgba(0,0,0,0.3);
-margin-top:40px;
-}
-
-video{
-border-radius:12px;
-margin-top:30px;
-}
-
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition: all 0.8s ease;
-}
-
-.fade.visible{
-opacity:1;
-transform:translateY(0);
-}
-
-</style>
-
-
-<div class="hero">
-
-<h1>DrawBot A4</h1>
-
-<p>
-Machine à dessiner automatisée  
-Projet d’ingénierie – Groupe 07
-</p>
-
-<a class="btn" href="#project">Découvrir le projet</a>
-
-</div>
-
-
-<div class="section fade" id="project">
-
-<h2>Le projet</h2>
-
-<p>
-Le DrawBot A4 est une machine capable de transformer des mouvements mécaniques
-en tracés graphiques précis sur une feuille A4.
-</p>
-
-<img src="images/drawbot.png">
-
-</div>
-
-
-<div class="section section-dark fade">
-
-<h2>Modèle 3D interactif</h2>
-
-<iframe
-height="500"
-width="100%"
-src="https://modelembedder.net/embed?did=e069393fab7baea4fdb59362&wvm=v&wvmid=7b5e182986723ef343886fa5&eid=e6b6ce24fbb03acfda1a5889&elementType=ASSEMBLY"
-frameborder="0">
-</iframe>
-
-</div>
-
-
-<div class="section fade">
-
-<h2>Poster du projet</h2>
-
-<img src="images/poster_drawbot_a4.png">
-
-</div>
-
-
-<div class="section section-dark fade">
-
-<h2>Vidéo de présentation</h2>
-
-<video controls width="80%">
-<source src="images/video_drawbot_a4.mp4" type="video/mp4">
-</video>
-
-</div>
-
-
-<script>
-
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("visible")
-}
-})
-})
-
-document.querySelectorAll(".fade").forEach(el=>{
-observer.observe(el)
-})
-
-</script>
