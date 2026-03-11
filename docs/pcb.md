@@ -4,210 +4,167 @@ title: Carte PCB
 nav_order: 6
 ---
 
-# Conception d'une carte PCB dédiée
+# Conception d’une carte PCB dédiée
 
-Ce projet s’inscrit dans la continuité du projet **Machine that Draws**.  
-L’objectif est de concevoir et fabriquer une **carte électronique dédiée** afin de remplacer le contrôleur de drivers utilisé précédemment.
+Dans la continuité du projet **DrawBot A4**, nous avons conçu une **carte électronique dédiée** afin de remplacer le contrôleur utilisé lors des premiers prototypes.
 
-La carte permettra d'intégrer directement les éléments nécessaires au pilotage de la machine.
+L’objectif est de créer une carte unique capable de piloter la machine, gérer les moteurs et fournir une interface utilisateur simple.
+
+Cette approche permet :
+
+- d'améliorer la fiabilité du système
+- de réduire le nombre de connexions externes
+- d'intégrer toutes les fonctions dans une seule carte
 
 ---
 
 # Architecture de la carte
 
-La carte intègre les composants suivants :
+La carte repose sur une architecture simple et modulaire.
 
-- **ESP32** comme microcontrôleur principal  
-- **2 drivers A4988** pour piloter les moteurs pas-à-pas X et Y  
-- **Lecteur de carte SD** pour stocker les fichiers G-code ou dessins  
-- **Écran OLED** pour afficher les informations et les menus  
-- **Connecteurs moteurs et alimentation**  
-- **Gestion des alimentations**
+Le **microcontrôleur ESP32-S3** agit comme le cerveau du système et communique avec différents périphériques :
 
----
+- **Drivers A4988** pour piloter les moteurs pas-à-pas
+- **Écran OLED** pour afficher l’état de la machine
+- **Carte SD** pour stocker les fichiers de dessin
+- **Fins de course** pour sécuriser les déplacements
 
-# Objectifs pédagogiques
-
-À l’issue de ce projet, nous serons capables de :
-
-- Concevoir un **schéma électronique complet avec KiCad**
-- Réaliser le **routage d’un PCB**
-- Intégrer des **bus de communication (I2C et SPI)**
-- Gérer les **contraintes de puissance et découplage**
-- Souder des **composants CMS et traversants**
-- Déboguer une **carte électronique**
-- Documenter un **projet technique complet**
+Cette architecture permet de contrôler la machine tout en offrant une interface de suivi.
 
 ---
 
-# Cahier des charges
+# Pourquoi utiliser un ESP32 ?
 
-## Spécifications fonctionnelles
+L’ESP32 a été choisi pour plusieurs raisons :
 
-La carte doit permettre de :
+- microcontrôleur puissant et polyvalent
+- nombreuses interfaces (SPI, I2C, GPIO)
+- compatibilité avec l’environnement Arduino
+- facilité de programmation
 
-- Piloter **2 moteurs pas-à-pas (axes X et Y)** via drivers A4988
-- Stocker des fichiers sur **carte SD**
-- Afficher des informations sur **écran OLED**
-- Détecter les **fins de course**
-- Effectuer le **référencement automatique (homing)**
-- Protéger contre les **déplacements hors limites**
+Il permet de gérer à la fois :
 
----
-
-# Spécifications techniques
-
-| Paramètre | Valeur | Remarques |
-|--------|--------|--------|
-| Alimentation moteurs | 12V ou 24V DC | alimentation externe |
-| Alimentation ESP32 | 5V | régulateur R-78E5.0-1.0 |
-| Logique | 3.3V | ESP32 |
-| Courant moteurs | 0.5A – 1.5A | réglage via Vref |
-| Interface I2C | GPIO8 / GPIO9 | écran OLED |
-| Interface SPI | GPIO 18/19/11/5 | carte SD |
-| Microcontrôleur | ESP32 S3 UNO | format Arduino |
-| Dimensions PCB | Shield Arduino UNO | intégration facile |
+- le contrôle des moteurs
+- la lecture des capteurs
+- l’affichage sur écran
+- la communication avec la carte SD.
 
 ---
 
-# Bill of Materials (BOM)
+# Pilotage des moteurs
 
-## Composants principaux
+Les moteurs pas-à-pas sont contrôlés par **deux drivers A4988**.
 
-| Composant | Référence | Quantité |
-|----------|----------|----------|
-| ESP32 S3 UNO | ESP32 S3 UNO | 1 |
-| Driver A4988 | StepStick | 2 |
-| Écran OLED | SSD1306 | 1 |
-| Lecteur carte SD | Socket SD | 1 |
-| Moteur NEMA17 | - | 2 |
-| Régulateur 5V | R-78E5.0 | 1 |
+Chaque driver permet de contrôler :
 
----
+- la direction du moteur (DIR)
+- le nombre de pas effectués (STEP)
 
-# Étapes de réalisation
+Cela permet de déplacer précisément les axes **X et Y** du DrawBot.
 
-## 1 — Prototypage
-
-Test du driver **A4988** sur breadboard avec un moteur NEMA17.
-
-Objectif :
-
-- vérifier le fonctionnement du driver
-- régler le **courant moteur**
-- tester un **code de rotation simple**
-
-Livrables :
-
-- photos du montage
-- résultats des tests
+Le courant moteur peut être ajusté via la tension de référence (**Vref**) afin d’éviter la surchauffe.
 
 ---
 
-## 2 — Conception du schéma (KiCad)
+# Gestion des entrées et capteurs
 
-Étapes :
+La carte intègre également des **fins de course mécaniques**.
 
-- création du projet KiCad
-- placement des composants
-- connexion des alimentations
-- ajout des résistances et condensateurs
-- vérification ERC
+Ces capteurs permettent :
 
-Livrables :
-
-- fichier `.kicad_sch`
-- PDF du schéma
+- de détecter la position limite des axes
+- d’effectuer un **homing automatique**
+- d’éviter les collisions mécaniques.
 
 ---
 
-## 3 — Routage PCB
+# Interface utilisateur
 
-Dans **KiCad Pcbnew** :
+Un **écran OLED** est utilisé pour afficher les informations importantes :
 
-- placement des composants
-- routage des pistes
-- ajout du plan de masse
-- vérification DRC
+- état de la machine
+- progression du dessin
+- menus de navigation
 
-Livrables :
-
-- fichier `.kicad_pcb`
+L’écran communique avec l’ESP32 via le **bus I2C**, ce qui simplifie le câblage.
 
 ---
 
-## 4 — Fabrication du PCB
+# Stockage des fichiers
 
-- génération des fichiers **Gerber**
-- vérification avec visualiseur
-- commande du PCB
+La machine peut lire des fichiers depuis une **carte SD**.
 
-Livrables :
+Cela permet de stocker :
 
-- archive `.zip` des Gerber
+- les fichiers G-code
+- les dessins à réaliser
 
----
-
-## 5 — Assemblage
-
-- soudure CMS
-- soudure composants traversants
-- inspection visuelle
-
-Livrables :
-
-- photos du PCB assemblé
+La communication avec la carte SD se fait via le **bus SPI**, plus rapide et adapté au transfert de données.
 
 ---
 
-## 6 — Tests et validation
+# Conception électronique avec KiCad
 
-Tests réalisés :
+La conception de la carte a été réalisée avec le logiciel **KiCad**.
 
-- continuité électrique
-- alimentation
-- communication I2C
-- lecture carte SD
-- rotation moteurs
-- détection des fins de course
+Les principales étapes ont été :
 
-Livrables :
+1. création du schéma électronique
+2. vérification des connexions
+3. attribution des empreintes
+4. routage du PCB
+5. génération des fichiers de fabrication
 
-- **vidéo de démonstration**
-- **documentation technique**
+Ces étapes permettent de passer d’un schéma théorique à une carte physique.
 
 ---
 
-# Configuration PlatformIO
+# Routage du PCB
 
-Pour programmer l’ESP32 S3 :
-[env:esp32-s3-devkitc-1]
-platform = espressif32
-board = esp32-s3-devkitc-1
-framework = arduino
-monitor_speed = 115200
+Lors du routage, plusieurs contraintes ont été prises en compte :
+
+- pistes plus larges pour les lignes d’alimentation
+- plan de masse pour améliorer la stabilité électrique
+- placement des condensateurs de découplage au plus près des circuits
+
+Ces bonnes pratiques permettent d’obtenir une carte fiable et stable.
+
 ---
 
-# Planning du projet
+# Fabrication et assemblage
 
-| Séance | Durée | Contenu |
-|------|------|------|
-| 1 | 3h | Prototypage |
-| 2 | 3h | Schéma électronique |
-| 3 | 3h | Routage PCB |
-| 4 | 3h | Routage PCB |
-| 5 | 3h | Assemblage |
-| 6 | 3h | Développement logiciel |
-| 7 | 3h | Correctifs |
-| 8 | 3h | Validation finale |
+Une fois le routage terminé, les fichiers **Gerber** ont été générés pour la fabrication.
+
+L’assemblage de la carte comprend :
+
+- soudure des composants CMS
+- soudure des composants traversants
+- inspection des soudures
+
+Des tests électriques sont ensuite réalisés avant la mise sous tension.
+
+---
+
+# Validation du système
+
+La validation finale consiste à tester :
+
+- la communication avec l’écran OLED
+- la lecture de la carte SD
+- la rotation des moteurs
+- la détection des fins de course
+
+Ces tests permettent de vérifier que la carte fonctionne correctement avec le **DrawBot A4**.
 
 ---
 
 # Résultat attendu
 
-Une **carte PCB fonctionnelle** permettant de piloter le **DrawBot A4** avec :
+La carte PCB doit permettre de centraliser toutes les fonctions nécessaires au pilotage du DrawBot :
 
-- contrôle moteurs
-- stockage fichiers
+- contrôle des moteurs
+- gestion des capteurs
 - interface utilisateur
-- capteurs de position
+- stockage des fichiers
+
+Elle constitue ainsi une **solution compacte et intégrée** pour le fonctionnement de la machine.
