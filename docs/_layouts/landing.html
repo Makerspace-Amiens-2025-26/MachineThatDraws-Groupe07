@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>{{ page.title }}</title>
+
+<style>
+
+body{
+margin:0;
+font-family: system-ui, sans-serif;
+background:#0f172a;
+color:white;
+}
+
+/* HERO SECTION */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background: radial-gradient(circle at center,#1e293b,#020617);
+}
+
+.hero h1{
+font-size:80px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:24px;
+opacity:0.9;
+}
+
+.btn{
+margin-top:40px;
+background:#6366f1;
+padding:16px 40px;
+border-radius:8px;
+color:white;
+text-decoration:none;
+font-size:18px;
+font-weight:600;
+}
+
+/* SECTIONS */
+
+.section{
+padding:120px 10%;
+text-align:center;
+background:white;
+color:#111;
+}
+
+.section-dark{
+background:#020617;
+color:white;
+}
+
+.section img{
+max-width:1000px;
+width:100%;
+border-radius:12px;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+margin-top:40px;
+}
+
+/* VIDEO */
+
+video{
+margin-top:40px;
+border-radius:12px;
+}
+
+/* FADE ANIMATION */
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+
+.fade.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+</style>
+
+</head>
+
+<body>
+
+{{ content }}
+
+<script>
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible")
+}
+})
+})
+
+document.querySelectorAll(".fade").forEach(el=>{
+observer.observe(el)
+})
+
+</script>
+
+</body>
+</html>
