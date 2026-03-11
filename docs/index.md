@@ -1,22 +1,27 @@
 ---
-layout: home
+layout: default
+title: DrawBot A4
 nav_order: 1
-title: Accueil
 permalink: /
 ---
 
 <style>
 
-.hero {
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-text-align: center;
+body{
+margin:0;
+font-family: system-ui, sans-serif;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 background: linear-gradient(120deg,#0f172a,#1e293b);
-color: white;
-padding: 40px;
+color:white;
+padding:40px;
 }
 
 .hero h1{
@@ -25,23 +30,23 @@ margin-bottom:20px;
 }
 
 .hero p{
-font-size:20px;
+font-size:22px;
 max-width:700px;
+opacity:0.9;
 }
 
-.btn-main{
+.btn{
 background:#6366f1;
 padding:14px 30px;
 border-radius:8px;
 color:white;
 text-decoration:none;
 margin-top:30px;
-display:inline-block;
 font-weight:600;
 }
 
 .section{
-padding:100px 10%;
+padding:120px 10%;
 text-align:center;
 }
 
@@ -52,8 +57,26 @@ color:white;
 
 .section img{
 max-width:900px;
+width:100%;
 border-radius:12px;
+box-shadow:0 10px 40px rgba(0,0,0,0.3);
 margin-top:40px;
+}
+
+video{
+border-radius:12px;
+margin-top:30px;
+}
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition: all 0.8s ease;
+}
+
+.fade.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 </style>
@@ -68,12 +91,12 @@ Machine à dessiner automatisée
 Projet d’ingénierie – Groupe 07
 </p>
 
-<a class="btn-main" href="#project">Découvrir le projet</a>
+<a class="btn" href="#project">Découvrir le projet</a>
 
 </div>
 
 
-<div class="section" id="project">
+<div class="section fade" id="project">
 
 <h2>Le projet</h2>
 
@@ -87,7 +110,7 @@ en tracés graphiques précis sur une feuille A4.
 </div>
 
 
-<div class="section section-dark">
+<div class="section section-dark fade">
 
 <h2>Modèle 3D interactif</h2>
 
@@ -101,7 +124,7 @@ frameborder="0">
 </div>
 
 
-<div class="section">
+<div class="section fade">
 
 <h2>Poster du projet</h2>
 
@@ -110,7 +133,7 @@ frameborder="0">
 </div>
 
 
-<div class="section section-dark">
+<div class="section section-dark fade">
 
 <h2>Vidéo de présentation</h2>
 
@@ -119,3 +142,20 @@ frameborder="0">
 </video>
 
 </div>
+
+
+<script>
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible")
+}
+})
+})
+
+document.querySelectorAll(".fade").forEach(el=>{
+observer.observe(el)
+})
+
+</script>
