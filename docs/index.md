@@ -5,63 +5,117 @@ title: Accueil
 permalink: /
 ---
 
-# DrawBot A4
+<style>
 
-### Machine à dessiner – Traceur 2D automatisé  
-Projet étudiant d’ingénierie – Groupe 07
+.hero {
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+background: linear-gradient(120deg,#0f172a,#1e293b);
+color: white;
+padding: 40px;
+}
 
-Bienvenue sur le site de présentation de notre projet **DrawBot A4**.
+.hero h1{
+font-size:70px;
+margin-bottom:20px;
+}
 
-[Voir le modèle 3D](#modele-3d){: .btn .btn-primary }
-[Voir la vidéo](#video){: .btn }
+.hero p{
+font-size:20px;
+max-width:700px;
+}
 
----
+.btn-main{
+background:#6366f1;
+padding:14px 30px;
+border-radius:8px;
+color:white;
+text-decoration:none;
+margin-top:30px;
+display:inline-block;
+font-weight:600;
+}
 
-## Présentation du projet
+.section{
+padding:100px 10%;
+text-align:center;
+}
 
-Le **DrawBot A4** est une machine capable de transformer des mouvements mécaniques en tracés graphiques précis sur une feuille A4.
+.section-dark{
+background:#0f172a;
+color:white;
+}
 
-Ce projet nous a permis d’explorer plusieurs domaines de l’ingénierie :
+.section img{
+max-width:900px;
+border-radius:12px;
+margin-top:40px;
+}
 
-- conception mécanique
-- modélisation 3D
-- découpe laser
-- prototypage
+</style>
 
----
 
-## Modèle 3D interactif
-<a id="modele-3d"></a>
+<div class="hero">
+
+<h1>DrawBot A4</h1>
+
+<p>
+Machine à dessiner automatisée  
+Projet d’ingénierie – Groupe 07
+</p>
+
+<a class="btn-main" href="#project">Découvrir le projet</a>
+
+</div>
+
+
+<div class="section" id="project">
+
+<h2>Le projet</h2>
+
+<p>
+Le DrawBot A4 est une machine capable de transformer des mouvements mécaniques
+en tracés graphiques précis sur une feuille A4.
+</p>
+
+<img src="images/drawbot.png">
+
+</div>
+
+
+<div class="section section-dark">
+
+<h2>Modèle 3D interactif</h2>
 
 <iframe
-height="600"
+height="500"
 width="100%"
 src="https://modelembedder.net/embed?did=e069393fab7baea4fdb59362&wvm=v&wvmid=7b5e182986723ef343886fa5&eid=e6b6ce24fbb03acfda1a5889&elementType=ASSEMBLY"
 frameborder="0">
 </iframe>
 
----
+</div>
 
-## Poster du projet
 
-![Poster du projet DrawBot A4](images/poster_drawbot_a4.png)
+<div class="section">
 
----
+<h2>Poster du projet</h2>
 
-## Vidéo de présentation
-<a id="video"></a>
+<img src="images/poster_drawbot_a4.png">
 
-<video controls width="100%">
-  <source src="images/video_drawbot_a4.mp4" type="video/mp4">
+</div>
+
+
+<div class="section section-dark">
+
+<h2>Vidéo de présentation</h2>
+
+<video controls width="80%">
+<source src="images/video_drawbot_a4.mp4" type="video/mp4">
 </video>
 
----
-
-## Navigation rapide
-
-- [Objectifs du projet](objectifs)
-- [Études et choix techniques](etudes)
-- [Conception et prototypage](conception)
-- [Étapes de fabrication](etapes)
-- [Galerie du projet](galerie)
-- [Équipe](equipe)
+</div>
