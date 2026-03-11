@@ -1,9 +1,60 @@
----
-layout: default
-title: DrawBot A4
-nav_order: 1
-permalink: /
----
+<div class="hero">
+
+<h1>DrawBot A4</h1>
+
+<p>Machine à dessiner automatisée<br>Projet d’ingénierie – Groupe 07</p>
+
+<a class="btn" href="#project">Découvrir le projet</a>
+
+</div>
+
+
+<div class="section fade" id="project">
+
+<h2>Le projet</h2>
+
+<p>
+Le DrawBot A4 est une machine capable de transformer des mouvements mécaniques
+en tracés graphiques précis sur une feuille A4.
+</p>
+
+<img src="images/drawbot.png">
+
+</div>
+
+
+<div class="section section-dark fade">
+
+<h2>Modèle 3D interactif</h2>
+
+<iframe
+height="500"
+width="100%"
+src="https://modelembedder.net/embed?did=e069393fab7baea4fdb59362&wvm=v&wvmid=7b5e182986723ef343886fa5&eid=e6b6ce24fbb03acfda1a5889&elementType=ASSEMBLY"
+frameborder="0">
+</iframe>
+
+</div>
+
+
+<div class="section fade">
+
+<h2>Poster du projet</h2>
+
+<img src="images/poster_drawbot_a4.png">
+
+</div>
+
+
+<div class="section section-dark fade">
+
+<h2>Vidéo de présentation</h2>
+
+<video controls width="70%">
+<source src="images/video_drawbot_a4.mp4" type="video/mp4">
+</video>
+
+</div>
 
 <style>
 
