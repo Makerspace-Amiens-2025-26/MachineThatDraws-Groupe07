@@ -4,106 +4,42 @@ title: Carte PCB
 nav_order: 6
 ---
 
-# Conception d’une carte PCB dédiée
+# Conception de la carte PCB
 
-Dans la continuité du projet **DrawBot A4**, nous avons conçu une **carte électronique dédiée** afin de remplacer le contrôleur utilisé lors des premiers prototypes.
+Dans le cadre du projet **DrawBot A4**, nous avons également réalisé la conception d’une **carte électronique (PCB)** afin de regrouper les différents composants nécessaires au fonctionnement de la machine.
 
-L’objectif est de créer une carte unique capable de piloter la machine, gérer les moteurs et fournir une interface utilisateur simple.
-
-Cette approche permet :
-
-- d'améliorer la fiabilité du système
-- de réduire le nombre de connexions externes
-- d'intégrer toutes les fonctions dans une seule carte
+L’objectif est de remplacer les montages temporaires réalisés lors du prototypage par une **solution plus propre, compacte et fiable**.
 
 ---
 
-# Architecture de la carte
+## Objectif du projet
 
-La carte repose sur une architecture simple et modulaire.
+La carte PCB doit permettre de :
 
-Le **microcontrôleur ESP32-S3** agit comme le cerveau du système et communique avec différents périphériques :
+- contrôler les **moteurs pas-à-pas** de la machine
+- connecter les **capteurs de fin de course**
+- gérer l’**interface utilisateur**
+- centraliser les connexions de la machine
 
-- **Drivers A4988** pour piloter les moteurs pas-à-pas
-- **Écran OLED** pour afficher l’état de la machine
-- **Carte SD** pour stocker les fichiers de dessin
-- **Fins de course** pour sécuriser les déplacements
-
-Cette architecture permet de contrôler la machine tout en offrant une interface de suivi.
+Cette carte facilite donc l’intégration et améliore la fiabilité du système.
 
 ---
 
-# Pourquoi utiliser un ESP32 ?
+## Composants principaux
 
-L’ESP32 a été choisi pour plusieurs raisons :
+La carte intègre plusieurs éléments essentiels :
 
-- microcontrôleur puissant et polyvalent
-- nombreuses interfaces (SPI, I2C, GPIO)
-- compatibilité avec l’environnement Arduino
-- facilité de programmation
+- **ESP32** : microcontrôleur principal de la machine
+- **Drivers A4988** : pilotage des moteurs pas-à-pas
+- **Écran OLED** : affichage des informations de la machine
+- **Lecteur de carte SD** : stockage des fichiers de dessin
+- **Connecteurs moteurs et capteurs**
 
-Il permet de gérer à la fois :
-
-- le contrôle des moteurs
-- la lecture des capteurs
-- l’affichage sur écran
-- la communication avec la carte SD.
+Ces composants permettent de contrôler l’ensemble du système.
 
 ---
 
-# Pilotage des moteurs
-
-Les moteurs pas-à-pas sont contrôlés par **deux drivers A4988**.
-
-Chaque driver permet de contrôler :
-
-- la direction du moteur (DIR)
-- le nombre de pas effectués (STEP)
-
-Cela permet de déplacer précisément les axes **X et Y** du DrawBot.
-
-Le courant moteur peut être ajusté via la tension de référence (**Vref**) afin d’éviter la surchauffe.
-
----
-
-# Gestion des entrées et capteurs
-
-La carte intègre également des **fins de course mécaniques**.
-
-Ces capteurs permettent :
-
-- de détecter la position limite des axes
-- d’effectuer un **homing automatique**
-- d’éviter les collisions mécaniques.
-
----
-
-# Interface utilisateur
-
-Un **écran OLED** est utilisé pour afficher les informations importantes :
-
-- état de la machine
-- progression du dessin
-- menus de navigation
-
-L’écran communique avec l’ESP32 via le **bus I2C**, ce qui simplifie le câblage.
-
----
-
-# Stockage des fichiers
-
-La machine peut lire des fichiers depuis une **carte SD**.
-
-Cela permet de stocker :
-
-- les fichiers G-code
-- les dessins à réaliser
-
-La communication avec la carte SD se fait via le **bus SPI**, plus rapide et adapté au transfert de données.
-
----
-
-# Conception électronique avec KiCad
+## Conception avec KiCad
 
 La conception de la carte a été réalisée avec le logiciel **KiCad**.
 
@@ -111,60 +47,35 @@ Les principales étapes ont été :
 
 1. création du schéma électronique
 2. vérification des connexions
-3. attribution des empreintes
-4. routage du PCB
-5. génération des fichiers de fabrication
+3. routage du PCB
+4. génération des fichiers de fabrication
 
-Ces étapes permettent de passer d’un schéma théorique à une carte physique.
+Cette étape permet de transformer le schéma électronique en **carte physique utilisable**.
 
 ---
 
-# Routage du PCB
+## Routage du PCB
 
-Lors du routage, plusieurs contraintes ont été prises en compte :
+Lors du routage de la carte, plusieurs règles ont été respectées :
 
 - pistes plus larges pour les lignes d’alimentation
-- plan de masse pour améliorer la stabilité électrique
-- placement des condensateurs de découplage au plus près des circuits
+- plan de masse pour améliorer la stabilité
+- placement des composants de manière logique
 
-Ces bonnes pratiques permettent d’obtenir une carte fiable et stable.
-
----
-
-# Fabrication et assemblage
-
-Une fois le routage terminé, les fichiers **Gerber** ont été générés pour la fabrication.
-
-L’assemblage de la carte comprend :
-
-- soudure des composants CMS
-- soudure des composants traversants
-- inspection des soudures
-
-Des tests électriques sont ensuite réalisés avant la mise sous tension.
+Cela permet d'obtenir une carte **stable et fiable**.
 
 ---
 
-# Validation du système
+## Fabrication et assemblage
 
-La validation finale consiste à tester :
+Une fois la conception terminée, les fichiers de fabrication ont été générés afin de produire la carte PCB.
 
-- la communication avec l’écran OLED
-- la lecture de la carte SD
-- la rotation des moteurs
-- la détection des fins de course
-
-Ces tests permettent de vérifier que la carte fonctionne correctement avec le **DrawBot A4**.
+Après réception, les composants ont été soudés sur la carte afin de réaliser l’assemblage complet.
 
 ---
 
-# Résultat attendu
+## Résultat
 
-La carte PCB doit permettre de centraliser toutes les fonctions nécessaires au pilotage du DrawBot :
+La carte PCB permet de regrouper tous les éléments électroniques nécessaires au fonctionnement du **DrawBot A4** sur un seul circuit.
 
-- contrôle des moteurs
-- gestion des capteurs
-- interface utilisateur
-- stockage des fichiers
-
-Elle constitue ainsi une **solution compacte et intégrée** pour le fonctionnement de la machine.
+Elle constitue une solution **plus propre, plus compacte et plus fiable** que le montage réalisé lors du prototypage.
