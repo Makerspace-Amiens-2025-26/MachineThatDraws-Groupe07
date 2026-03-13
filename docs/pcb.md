@@ -6,76 +6,75 @@ nav_order: 6
 
 # Conception de la carte PCB
 
-Dans le cadre du projet **DrawBot A4**, nous avons également réalisé la conception d’une **carte électronique (PCB)** afin de regrouper les différents composants nécessaires au fonctionnement de la machine.
+Dans la continuité du projet **DrawBot A4**, nous avons réalisé la conception d'une **carte électronique (PCB)** afin de regrouper les différents composants nécessaires au fonctionnement de la machine.
 
-L’objectif est de remplacer les montages temporaires réalisés lors du prototypage par une **solution plus propre, compacte et fiable**.
+L'objectif de cette carte est de remplacer les montages réalisés lors du prototypage par une solution plus **compacte, fiable et propre**.
 
 ---
 
-## Objectif du projet
+## Objectif du PCB
 
-La carte PCB doit permettre de :
+La carte PCB permet de centraliser les différents éléments électroniques nécessaires au fonctionnement du DrawBot.
 
-- contrôler les **moteurs pas-à-pas** de la machine
+Elle permet notamment de :
+
+- contrôler les **moteurs pas-à-pas**
 - connecter les **capteurs de fin de course**
-- gérer l’**interface utilisateur**
-- centraliser les connexions de la machine
+- gérer l'interface utilisateur
+- simplifier le câblage de la machine
 
-Cette carte facilite donc l’intégration et améliore la fiabilité du système.
+Cette carte permet donc d'améliorer la fiabilité et l'intégration du système.
 
 ---
 
 ## Composants principaux
 
-La carte intègre plusieurs éléments essentiels :
+La carte intègre plusieurs composants essentiels :
 
-- **ESP32** : microcontrôleur principal de la machine
-- **Drivers A4988** : pilotage des moteurs pas-à-pas
-- **Écran OLED** : affichage des informations de la machine
-- **Lecteur de carte SD** : stockage des fichiers de dessin
+- **ESP32** : microcontrôleur principal de la machine  
+- **Drivers A4988** : pilotage des moteurs pas-à-pas  
+- **Écran OLED** : affichage des informations  
+- **Lecteur de carte SD** : stockage des fichiers  
 - **Connecteurs moteurs et capteurs**
 
-Ces composants permettent de contrôler l’ensemble du système.
+Ces composants permettent de contrôler l'ensemble de la machine.
 
 ---
 
-## Conception avec KiCad
+## Schéma électronique
 
-La conception de la carte a été réalisée avec le logiciel **KiCad**.
+Le schéma électronique de la carte a été réalisé avec le logiciel **KiCad**.
 
-Les principales étapes ont été :
+Il permet de représenter l'ensemble des connexions entre les différents composants électroniques.
 
-1. création du schéma électronique
-2. vérification des connexions
-3. routage du PCB
-4. génération des fichiers de fabrication
-
-Cette étape permet de transformer le schéma électronique en **carte physique utilisable**.
+![Schéma PCB](images/pcb_schema.png)
 
 ---
 
-## Routage du PCB
+## Conception du PCB
 
-Lors du routage de la carte, plusieurs règles ont été respectées :
+Après la réalisation du schéma, la carte est routée afin de créer les pistes électriques reliant les composants.
 
-- pistes plus larges pour les lignes d’alimentation
-- plan de masse pour améliorer la stabilité
-- placement des composants de manière logique
+Lors de cette étape, plusieurs contraintes sont respectées :
 
-Cela permet d'obtenir une carte **stable et fiable**.
+- largeur des pistes pour l'alimentation
+- plan de masse pour la stabilité électrique
+- placement logique des composants
+
+Ces bonnes pratiques permettent d'obtenir une carte électronique fiable.
 
 ---
 
-## Fabrication et assemblage
+## Fichiers du projet
 
-Une fois la conception terminée, les fichiers de fabrication ont été générés afin de produire la carte PCB.
+Le projet KiCad complet de la carte PCB est disponible ci-dessous.
 
-Après réception, les composants ont été soudés sur la carte afin de réaliser l’assemblage complet.
+[📦 Télécharger le projet PCB](pcb_drawbot.zip){: .btn .btn-primary }
 
 ---
 
 ## Résultat
 
-La carte PCB permet de regrouper tous les éléments électroniques nécessaires au fonctionnement du **DrawBot A4** sur un seul circuit.
+La conception de cette carte PCB permet de regrouper tous les éléments électroniques nécessaires au fonctionnement du **DrawBot A4** sur un seul circuit.
 
-Elle constitue une solution **plus propre, plus compacte et plus fiable** que le montage réalisé lors du prototypage.
+Cela rend la machine plus **compacte, plus propre et plus facile à maintenir**.
