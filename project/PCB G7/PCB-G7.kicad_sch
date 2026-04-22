@@ -3561,6 +3561,12 @@
 		(uuid "fac22ae1-c091-46c8-8ce0-3cebcf0176fa")
 	)
 	(junction
+		(at 246.38 121.92)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fd1a01e3-0f14-436f-bfb6-5ff9655b6904")
+	)
+	(junction
 		(at 48.26 21.59)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3571,16 +3577,12 @@
 		(uuid "0109b894-62c5-4e6c-b178-9bc6080256f9")
 	)
 	(no_connect
-		(at 226.06 85.09)
-		(uuid "0f672ae5-cee3-4244-b3de-fe2ca132e59f")
-	)
-	(no_connect
 		(at 76.2 33.02)
 		(uuid "215522f5-de24-496a-97f6-655a2dae323a")
 	)
 	(no_connect
-		(at 226.06 82.55)
-		(uuid "286b3fc9-bf75-435f-9c7c-66bd924fe04c")
+		(at 109.22 153.67)
+		(uuid "23591c10-7d4f-46f3-b250-226fd1e6a5e6")
 	)
 	(no_connect
 		(at 226.06 55.88)
@@ -3603,6 +3605,10 @@
 		(uuid "50fdbbe7-4392-4970-b53a-60746d1cb6a6")
 	)
 	(no_connect
+		(at 226.06 90.17)
+		(uuid "59bef119-58b8-4cfc-b5b7-d81ba34bb728")
+	)
+	(no_connect
 		(at 105.41 59.69)
 		(uuid "5beb5939-2cec-47ef-946c-ddc42803a91c")
 	)
@@ -3613,6 +3619,10 @@
 	(no_connect
 		(at 226.06 58.42)
 		(uuid "64d99903-00cd-4f7f-b90d-c9a85a516b24")
+	)
+	(no_connect
+		(at 226.06 74.93)
+		(uuid "7b9abaa0-0aa4-431b-ac90-a4ca900084da")
 	)
 	(no_connect
 		(at 226.06 62.23)
@@ -3627,8 +3637,20 @@
 		(uuid "b6c1ee23-eec2-4814-b1d9-44fc3f709c05")
 	)
 	(no_connect
+		(at 175.26 71.12)
+		(uuid "cacf7233-2265-4c01-8540-7fc40636c155")
+	)
+	(no_connect
+		(at 175.26 73.66)
+		(uuid "d12fc6b4-82ef-40d6-a5e1-7e67e9db8640")
+	)
+	(no_connect
 		(at 175.26 67.31)
 		(uuid "d8f477db-7dae-481f-93ab-713b8d750fc5")
+	)
+	(no_connect
+		(at 175.26 83.82)
+		(uuid "da5b7865-d7c8-442e-af6a-9c07846b0a97")
 	)
 	(no_connect
 		(at 190.5 46.99)
@@ -3642,10 +3664,6 @@
 		(at 76.2 50.8)
 		(uuid "faf059a6-4262-4589-ab24-f458b7321f4f")
 	)
-	(no_connect
-		(at 226.06 90.17)
-		(uuid "ff0e4076-195e-4c6d-83aa-27823b8b79f1")
-	)
 	(wire
 		(pts
 			(xy 109.22 113.03) (xy 109.22 107.95)
@@ -3655,6 +3673,16 @@
 			(type default)
 		)
 		(uuid "05eae4a1-d548-485a-84b3-03c424b1fe1f")
+	)
+	(wire
+		(pts
+			(xy 246.38 121.92) (xy 261.62 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ade2234-6ad8-4d02-bd8a-d48a002cbffc")
 	)
 	(wire
 		(pts
@@ -4588,6 +4616,16 @@
 	)
 	(wire
 		(pts
+			(xy 261.62 121.92) (xy 261.62 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cb744c4a-6295-4db1-9101-ba6bfd5254d7")
+	)
+	(wire
+		(pts
 			(xy 27.94 21.59) (xy 40.64 21.59)
 		)
 		(stroke
@@ -4766,16 +4804,6 @@
 		)
 		(uuid "f630bba2-4a89-4f59-9524-8ea6bbe87e3b")
 	)
-	(wire
-		(pts
-			(xy 261.62 137.16) (xy 261.62 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fcb25d81-c4da-4cc1-a582-882b3806a9fa")
-	)
 	(global_label "EN2"
 		(shape input)
 		(at 129.54 161.29 180)
@@ -4946,17 +4974,17 @@
 	)
 	(global_label "EN1"
 		(shape input)
-		(at 175.26 73.66 180)
+		(at 226.06 82.55 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "358f0108-c4f9-4bed-b467-e9fa6facba05")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 168.5858 73.66 0)
+			(at 232.7342 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4964,23 +4992,23 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 	)
 	(global_label "CS"
 		(shape input)
-		(at 175.26 81.28 180)
+		(at 226.06 80.01 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "4808b1a7-9fbc-48e2-a1d2-fa7da1437fb7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 169.7953 81.28 0)
+			(at 231.5247 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4988,7 +5016,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 	)
@@ -5210,17 +5238,17 @@
 	)
 	(global_label "STEP1"
 		(shape input)
-		(at 175.26 71.12 180)
+		(at 226.06 85.09 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "7c18a7c8-42e1-46d4-ba86-e524adee646a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 166.4692 71.12 0)
+			(at 234.8508 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5228,7 +5256,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 	)
@@ -5330,7 +5358,7 @@
 	)
 	(global_label "EN2"
 		(shape input)
-		(at 175.26 83.82 180)
+		(at 175.26 81.28 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5340,7 +5368,7 @@
 		)
 		(uuid "c7ee678c-32f8-46bc-82bb-874c2338cb45")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 168.5858 83.82 0)
+			(at 168.5858 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5572,7 +5600,6 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "013a1b89-0740-417b-9498-ffd016cdba17")
 		(property "Reference" "J9"
 			(at 35.56 179.07 0)
@@ -5584,8 +5611,8 @@
 				)
 			)
 		)
-		(property "Value" "jumper 1"
-			(at 35.56 181.61 0)
+		(property "Value" "jumper 1 1"
+			(at 39.116 181.356 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5594,7 +5621,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 35.56 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -5667,7 +5694,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "driver A4988 1"
+		(property "Value" "driver A4988 2"
 			(at 151.384 180.086 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6035,7 +6062,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_BarrelJack:BarrelJack_Horizontal"
 			(at 66.04 100.076 0)
 			(hide yes)
 			(show_name no)
@@ -6199,7 +6226,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+		(property "Footprint" "makerspace-unilasalle:R_1206"
 			(at 54.102 27.94 90)
 			(hide yes)
 			(show_name no)
@@ -6595,7 +6622,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Radial_D8.0mm_H11.5mm_P3.50mm"
 			(at 80.01 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -6676,7 +6703,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "makerspace-unilasalle:R_1206"
 			(at 241.3 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -6834,7 +6861,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "makerspace-unilasalle:C_1206"
 			(at 189.23 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -6883,84 +6910,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 261.62 118.11 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "57b0811a-4861-4d14-b7fb-3f9e16079a8b")
-		(property "Reference" "#PWR033"
-			(at 261.62 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 261.62 113.03 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 261.62 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 261.62 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 261.62 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ce142416-98fc-4e7c-8472-288791ccc687")
-		)
-		(instances
-			(project "PCB-G7"
-				(path "/98ec91e2-33a3-40dd-ab64-d418271a76bb"
-					(reference "#PWR033")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "makerspace-unilasalle:C")
 		(at 261.62 143.51 180)
 		(unit 1)
@@ -6994,7 +6943,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "makerspace-unilasalle:C_1206"
 			(at 261.62 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -7074,7 +7023,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Display:OLED-128O064D"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
 			(at 231.14 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -7162,7 +7111,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "makerspace-unilasalle:R_1206"
 			(at 246.38 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -7835,7 +7784,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
 			(at 80.01 162.56 0)
 			(hide yes)
 			(show_name no)
@@ -8083,7 +8032,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "makerspace-unilasalle:C_1206"
 			(at 189.23 29.21 0)
 			(hide yes)
 			(show_name no)
@@ -8379,7 +8328,7 @@
 		(dnp no)
 		(uuid "af848d1f-5b95-4018-9d84-7f1ca2ac8cb5")
 		(property "Reference" "A5"
-			(at 66.548 176.276 0)
+			(at 65.786 180.086 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8390,7 +8339,7 @@
 			)
 		)
 		(property "Value" "driver A4988 1"
-			(at 66.548 178.816 0)
+			(at 64.516 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9003,7 +8952,7 @@
 				)
 			)
 		)
-		(property "Value" "jumper 2"
+		(property "Value" "jumper 2 2"
 			(at 110.49 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9013,7 +8962,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 110.49 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -9311,7 +9260,7 @@
 		(fields_autoplaced yes)
 		(uuid "c8796bb3-5f4a-4157-b7d8-7861aadfa7e4")
 		(property "Reference" "J19"
-			(at 251.46 33.655 0)
+			(at 251.46 33.02 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9321,7 +9270,7 @@
 			)
 		)
 		(property "Value" "servomoteur"
-			(at 251.46 36.195 0)
+			(at 251.46 35.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9330,7 +9279,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 251.46 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -9472,28 +9421,28 @@
 		(fields_autoplaced yes)
 		(uuid "db2de838-59a7-4ed2-bed2-9c327339cbbe")
 		(property "Reference" "C9"
-			(at 25.4 25.4062 0)
+			(at 30.48 25.4062 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "100uf"
-			(at 25.4 27.9462 0)
+			(at 30.48 27.9462 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "makerspace-unilasalle:C_1206"
 			(at 27.94 26.67 0)
 			(hide yes)
 			(show_name no)
@@ -9552,7 +9501,6 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "dc26b8d4-1e2e-462c-acce-21cfcea9b599")
 		(property "Reference" "J16"
 			(at 121.92 180.34 0)
@@ -9564,8 +9512,8 @@
 				)
 			)
 		)
-		(property "Value" "jumper 1"
-			(at 121.92 182.88 0)
+		(property "Value" "jumper 2 1"
+			(at 125.222 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9574,7 +9522,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 121.92 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -9739,7 +9687,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
 			(at 161.29 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -9905,7 +9853,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+		(property "Footprint" "makerspace-unilasalle:R_1206"
 			(at 38.862 27.94 90)
 			(hide yes)
 			(show_name no)
@@ -9975,7 +9923,7 @@
 				)
 			)
 		)
-		(property "Value" "jumper 2"
+		(property "Value" "jumper 1 2"
 			(at 24.13 181.61 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9985,7 +9933,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 24.13 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -10070,7 +10018,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 270.51 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -10152,7 +10100,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Radial_D8.0mm_H11.5mm_P3.50mm"
 			(at 161.29 138.43 0)
 			(hide yes)
 			(show_name no)
