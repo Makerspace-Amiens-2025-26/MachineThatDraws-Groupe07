@@ -643,16 +643,16 @@
       {
         "filename": "PCB-G7.kicad_sch",
         "name": "PCB-G7",
-        "uuid": "00000000-0000-0000-0000-000000000000"
+        "uuid": "98ec91e2-33a3-40dd-ab64-d418271a76bb"
       }
     ],
-    "used_designators": "",
+    "used_designators": "#PWR25",
     "variants": []
   },
   "sheets": [
     [
       "98ec91e2-33a3-40dd-ab64-d418271a76bb",
-      "Root"
+      "PCB-G7"
     ]
   ],
   "text_variables": {},
