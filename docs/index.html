@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DrawBot A4 — documentation technique open-source d'un bras articulé piloté par ESP32, réalisé en équipe avec PCB custom, pièces mécaniques et workflow SVG vers GCODE." />
+  <title>DrawBot A4 — Documentation Ingénierie</title>
+  <link rel="stylesheet" href="css/style-index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style-final.css" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-name">DrawBot A4</span>
+        <span class="brand-sub">Documentation open-source</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Accueil</a></li>
+        <li><a href="pcb.html" class="nav-link">Électronique</a></li>
+        <li><a href="fiche-technique.html" class="nav-link">Fiche Technique</a></li>
+        <li><a href="equipe.html" class="nav-link">Équipe</a></li>
+        <li><a href="explications.html" class="nav-link">Explications</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="pcb.html">Électronique</a></li>
+      <li><a href="fiche-technique.html">Fiche Technique</a></li>
+      <li><a href="equipe.html">Équipe</a></li>
+      <li><a href="explications.html">Explications</a></li>
+    </ul>
+  </div>
+
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/hero-drawbot.jpg" alt="DrawBot A4 dans l'atelier" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content fade-section visible">
+      <span class="hero-tag">Projet étudiant · Makerspace · Mécatronique</span>
+      <h1 class="hero-title">Un bras articulé A4 conçu, fabriqué et documenté en équipe.</h1>
+      <p class="hero-desc">Le DrawBot A4 est une machine de dessin automatisée à bras articulé, pilotée par ESP32 et pensée comme un vrai projet d’ingénierie open-source : mécanique imprimée en 3D, support feuille découpé au laser, PCB personnalisé, firmware FluidNC et pipeline image → SVG → GCODE → tracé.</p>
+      <div class="hero-badges">
+        <span class="badge">ESP32</span>
+        <span class="badge">FluidNC</span>
+        <span class="badge">KiCad</span>
+        <span class="badge">Onshape</span>
+        <span class="badge">Impression 3D</span>
+        <span class="badge">Découpe laser</span>
+        <span class="badge">GCODE</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#presentation" class="btn-primary">Explorer le projet</a>
+        <a href="fiche-technique.html" class="btn-outline">Lire la fiche technique</a>
+        <a href="pcb.html" class="btn-outline">Architecture PCB</a>
+        <a href="explications.html" class="btn-outline">Voir les explications</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="summary-band">
+    <div class="summary-inner">
+      <div class="sum-item"><span class="sum-val">A4</span><span class="sum-label">Surface de dessin</span></div>
+      <div class="sum-item"><span class="sum-val">5</span><span class="sum-label">Membres projet</span></div>
+      <div class="sum-item"><span class="sum-val">19</span><span class="sum-label">Étapes tutoriel</span></div>
+      <div class="sum-item"><span class="sum-val">ESP32</span><span class="sum-label">Contrôle machine</span></div>
+    </div>
+  </div>
+
+  <section class="section fade-section" id="presentation">
+    <div class="container">
+      <div class="section-label">01 — Vision système</div>
+      <h2 class="section-title">Une documentation qui relie conception, fabrication et usage réel.</h2>
+      <div class="pres-layout">
+        <div class="pres-text">
+          <p class="lead-text">Le DrawBot A4 n’est pas une machine cartésienne : c’est un bras articulé à deux segments conçu pour parcourir une feuille A4 en combinant transmission par courroies GT2, cinématique pilotée en firmware et calibration fine.</p>
+          <p>Le projet a été mené comme une chaîne complète d’ingénierie : modélisation 3D sous Onshape, fabrication des pièces, réalisation d’une carte électronique dédiée sous KiCad, intégration de l’ESP32, puis mise au point logicielle avec FluidNC, PlatformIO, p5.js et imagetracer.js.</p>
+          <p>Cette refonte conserve l’identité sombre rouge/noir du site existant tout en clarifiant le workflow global, les choix de conception et les livrables réels du projet.</p>
+          <div class="info-table">
+            <div class="info-row"><span class="info-key">Architecture</span><span class="info-val">Bras articulé 2 axes</span></div>
+            <div class="info-row"><span class="info-key">Commande</span><span class="info-val">ESP32 + FluidNC</span></div>
+            <div class="info-row"><span class="info-key">Transmission</span><span class="info-val">Poulies, courroies GT2, roulements</span></div>
+            <div class="info-row"><span class="info-key">Fabrication</span><span class="info-val">Impression 3D + découpe laser</span></div>
+            <div class="info-row"><span class="info-key">Électronique</span><span class="info-val">PCB custom avec carte SD</span></div>
+            <div class="info-row"><span class="info-key">Workflow</span><span class="info-val">Image → SVG → GCODE → Série → FluidNC</span></div>
+          </div>
+        </div>
+        <div class="pres-image">
+          <figure class="fig-block">
+            <img src="images/robot-final.jpg" alt="Vue finale du DrawBot A4" data-lightbox />
+            <figcaption>Vue du DrawBot A4 assemblé et prêt pour les essais de dessin.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt fade-section" id="workflow-global">
+    <div class="container">
+      <div class="section-label">02 — Workflow global</div>
+      <h2 class="section-title">Du fichier source au tracé physique sur la feuille.</h2>
+      <div class="workflow-band">
+        <div class="workflow-chain">
+          <div class="workflow-step">
+            <div class="workflow-icon">IMG</div>
+            <h4>Image source</h4>
+            <p>Visuel ou croquis préparé pour le tracé.</p>
+          </div>
+          <div class="workflow-arrow">→</div>
+          <div class="workflow-step">
+            <div class="workflow-icon">SVG</div>
+            <h4>Vectorisation</h4>
+            <p>Les contours sont convertis en SVG via imagetracer.js.</p>
+          </div>
+          <div class="workflow-arrow">→</div>
+          <div class="workflow-step">
+            <div class="workflow-icon">GCD</div>
+            <h4>GCODE</h4>
+            <p>Le SVG est transformé en trajectoires exploitables.</p>
+          </div>
+          <div class="workflow-arrow">→</div>
+          <div class="workflow-step">
+            <div class="workflow-icon">SER</div>
+            <h4>Liaison série</h4>
+            <p>Le fichier est envoyé à l’ESP32 depuis le poste de travail.</p>
+          </div>
+          <div class="workflow-arrow">→</div>
+          <div class="workflow-step">
+            <div class="workflow-icon">FNC</div>
+            <h4>FluidNC</h4>
+            <p>Le firmware traduit les instructions en mouvements moteurs.</p>
+          </div>
+          <div class="workflow-arrow">→</div>
+          <div class="workflow-step">
+            <div class="workflow-icon">A4</div>
+            <h4>Tracé final</h4>
+            <p>Le bras articulé exécute le dessin sur la feuille maintenue.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-section" id="mecanique">
+    <div class="container">
+      <div class="section-label">03 — Mécanique</div>
+      <h2 class="section-title">Une architecture mécanique pensée pour la précision malgré les contraintes du bras articulé.</h2>
+      <div class="subsys-layout">
+        <div class="sub-panel">
+          <div class="panel-chips">
+            <span class="mini-chip">Poulies GT2</span>
+            <span class="mini-chip">Roulements</span>
+            <span class="mini-chip">Bras articulés</span>
+            <span class="mini-chip">Réglages tension</span>
+          </div>
+          <p class="lead-text">La partie mécanique concentre la transmission, la rigidité et la répétabilité du mouvement.</p>
+          <p>Les moteurs pas à pas entraînent les articulations grâce aux poulies et aux courroies GT2. Les roulements réduisent les frottements aux points d’appui, tandis que la géométrie des bras a été modélisée pour couvrir le format A4 avec un comportement stable.</p>
+          <div class="sub-grid">
+            <article class="sub-card fade-item">
+              <span class="sub-card-tag">Transmission</span>
+              <h3>Poulies et courroies</h3>
+              <p>Yasmine a piloté la transmission par courroies GT2 et les réglages de tension pour limiter le flottement et les pertes de pas.</p>
+              <ul>
+                <li>Courroie GT2 à tension contrôlée</li>
+                <li>Réglages progressifs après essais</li>
+                <li>Compatibilité avec les poulies moteur</li>
+              </ul>
+            </article>
+            <article class="sub-card fade-item">
+              <span class="sub-card-tag">Conception</span>
+              <h3>Bras et supports</h3>
+              <p>Les pièces mécaniques ont été modélisées sous Onshape, puis préparées pour impression 3D et intégration sur la structure.</p>
+              <ul>
+                <li>Supports moteurs distincts</li>
+                <li>Bras articulés imprimés</li>
+                <li>Support stylo avec guidage</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item featured" data-lightbox data-caption="Assemblage Onshape du DrawBot A4">
+            <img src="images/onshape-assembly.png" alt="Assemblage Onshape du DrawBot A4" />
+          </div>
+          <div class="gallery-item" data-lightbox><img src="images/onshape-arm.png" alt="Vue du bras articulé modélisé" /></div>
+          <div class="gallery-item" data-lightbox><img src="images/pulley-system.png" alt="Système de poulies du DrawBot A4" /></div>
+          <div class="gallery-item" data-lightbox><img src="images/courroie.png" alt="Courroie GT2 utilisée pour la transmission" /></div>
+          <div class="gallery-item" data-lightbox><img src="images/support-moteur.png" alt="Support moteur imprimé pour le DrawBot A4" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt fade-section" id="electronique">
+    <div class="container">
+      <div class="section-label">04 — Électronique</div>
+      <h2 class="section-title">Une carte sur mesure pour centraliser alimentation, commande et stockage.</h2>
+      <div class="subsys-layout">
+        <div class="gallery-grid">
+          <div class="gallery-item featured" data-lightbox><img src="images/pcb-final.jpg" alt="PCB final assemblé du DrawBot A4" /></div>
+          <div class="gallery-item" data-lightbox><img src="images/pcb-components.jpg" alt="Composants préparés pour le PCB" /></div>
+          <div class="gallery-item" data-lightbox><img src="images/pcb-soldering.jpg" alt="Étape de soudure du PCB" /></div>
+          <div class="gallery-item" data-lightbox><img src="images/pcb.jpg" alt="Vue du PCB DrawBot A4" /></div>
+          <div class="gallery-item" data-lightbox><img src="images/schema-electronique.png" alt="Schéma électronique du robot" /></div>
+        </div>
+        <div class="sub-panel">
+          <div class="panel-chips">
+            <span class="mini-chip">ESP32</span>
+            <span class="mini-chip">Drivers moteurs</span>
+            <span class="mini-chip">Carte SD</span>
+            <span class="mini-chip">Fusible 3 A</span>
+          </div>
+          <p class="lead-text">La carte PCB regroupe les interfaces essentielles du DrawBot A4 et simplifie l’intégration finale.</p>
+          <p>Elle reçoit l’ESP32, les drivers de moteurs pas à pas, la distribution d’alimentation, le régulateur logique, le slot micro SD et les connecteurs nécessaires à l’assemblage. Le routage a été organisé par blocs fonctionnels pour faciliter les tests et la maintenance.</p>
+          <div class="sub-grid">
+            <article class="sub-card fade-item">
+              <span class="sub-card-tag">Protection</span>
+              <h3>Alimentation sécurisée</h3>
+              <p>Le fusible 3 A protège l’entrée principale, tandis que le régulateur assure la stabilité de la partie logique.</p>
+            </article>
+            <article class="sub-card fade-item">
+              <span class="sub-card-tag">Commande</span>
+              <h3>Chaîne moteur</h3>
+              <p>Les drivers moteurs convertissent les signaux issus du firmware en commandes STEP/DIR adaptées à l’exécution des trajectoires.</p>
+            </article>
+          </div>
+          <p style="margin-top:1rem"><a href="pcb.html" class="btn-secondary">Voir la page PCB détaillée</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-section" id="software">
+    <div class="container">
+      <div class="section-label">05 — Software & firmware</div>
+      <h2 class="section-title">Le pipeline logiciel transforme un dessin en mouvements exécutables par le robot.</h2>
+      <div class="pres-layout">
+        <div class="sub-panel">
+          <p class="lead-text">Damien a structuré le flux logiciel autour de FluidNC, PlatformIO et d’un traitement graphique orienté SVG/GCODE.</p>
+          <p>Le processus suit une chaîne claire : image source, vectorisation avec <code>imagetracer.js</code>, génération de GCODE, envoi par liaison série, interprétation par FluidNC puis exécution moteur.</p>
+          <div class="sub-grid">
+            <article class="sub-card fade-item">
+              <span class="sub-card-tag">Firmware</span>
+              <h3>ESP32 + FluidNC</h3>
+              <p>Le microcontrôleur reçoit la configuration, traduit les commandes et synchronise les déplacements du bras articulé.</p>
+            </article>
+            <article class="sub-card fade-item">
+              <span class="sub-card-tag">Interface</span>
+              <h3>p5.js + imagetracer.js</h3>
+              <p>Les outils web permettent de préparer les fichiers et d’obtenir une trajectoire exploitable sans inventer de chaîne logicielle extérieure.</p>
+            </article>
+          </div>
+        </div>
+        <div class="workflow-band">
+          <div class="workflow-chain">
+            <div class="workflow-step"><div class="workflow-icon">1</div><h4>Flasher FluidNC</h4><p>Préparer l’ESP32 avec le firmware.</p></div>
+            <div class="workflow-step"><div class="workflow-icon">2</div><h4>Installer config.yaml</h4><p>Charger la configuration machine.</p></div>
+            <div class="workflow-step"><div class="workflow-icon">3</div><h4>Envoyer le GCODE</h4><p>Transmission série depuis le poste de travail.</p></div>
+            <div class="workflow-step"><div class="workflow-icon">4</div><h4>Traduction FluidNC</h4><p>Lecture des consignes et gestion des axes.</p></div>
+            <div class="workflow-step"><div class="workflow-icon">5</div><h4>Exécution moteur</h4><p>Les moteurs réalisent le dessin demandé.</p></div>
+            <div class="workflow-step"><div class="workflow-icon">6</div><h4>Calibration</h4><p>Mesure, correction et validation du tracé.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt fade-section" id="assemblage">
+    <div class="container">
+      <div class="section-label">06 — Assemblage & fabrication</div>
+      <h2 class="section-title">Le montage associe pièces imprimées, découpe laser et intégration progressive des sous-ensembles.</h2>
+      <div class="fab-layout">
+        <div class="fab-panel">
+          <p class="lead-text">Le robot a été assemblé en combinant fabrication additive, découpe laser et ajustements successifs après test.</p>
+          <div class="fab-grid">
+            <article class="fab-block fade-item">
+              <h3>Impression 3D</h3>
+              <p>Bras, supports moteur, support stylo et pièces d’interface issus des fichiers STL du projet.</p>
+            </article>
+            <article class="fab-block fade-item">
+              <h3>Découpe laser</h3>
+              <p>Support feuille, clapet et éléments plans pour le maintien du format A4.</p>
+            </article>
+            <article class="fab-block fade-item">
+              <h3>Intégration</h3>
+              <p>Montage des roulements, tension des courroies, pose du PCB puis essais moteurs et calibration.</p>
+            </article>
+          </div>
+          <span class="fab-note">Le tutoriel complet en 19 étapes est détaillé dans la fiche technique.</span>
+        </div>
+        <div class="viewer-fallback">
+          <div class="viewer-head">
+            <strong>Vue d’ensemble de l’assemblage</strong>
+            <span class="mini-chip">Fallback galerie interactive</span>
+          </div>
+          <div class="viewer-body">
+            <div class="viewer-frame">
+              <img src="images/onshape-assembly.png" alt="Assemblage Onshape général" data-lightbox />
+              <span>Assemblage global du robot dans Onshape.</span>
+            </div>
+            <div class="viewer-frame">
+              <img src="images/machine.png" alt="Machine DrawBot A4" data-lightbox />
+              <span>Vue machine utilisée comme référence de montage.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-section" id="pcb-fabrication">
+    <div class="container">
+      <div class="section-label">07 — PCB & fabrication</div>
+      <h2 class="section-title">Le PCB et sa soudure ont structuré l’intégration finale de la machine.</h2>
+      <div class="gallery-project">
+        <div class="gallery-shell">
+          <div class="gallery-tags">
+            <span class="gallery-tag">KiCad</span>
+            <span class="gallery-tag">CMS</span>
+            <span class="gallery-tag">Carte finale</span>
+          </div>
+          <p>Le travail sur la carte a permis d’obtenir un assemblage plus propre, plus lisible et plus fiable qu’un câblage dispersé. Les étapes de soudure CMS, d’implantation des composants et de validation ont été intégrées au site pour valoriser le travail électronique réel du projet.</p>
+          <p><a href="pcb.html" class="btn-tech">Explorer l’architecture électronique</a></p>
+        </div>
+        <div class="project-gallery-grid">
+          <div class="gallery-item" data-lightbox><img src="images/pcb-final.jpg" alt="PCB final du DrawBot A4" /></div>
+          <div class="gallery-item" data-lightbox><img src="images/pcb-components.jpg" alt="Composants de la carte PCB" /></div>
+          <div class="gallery-item" data-lightbox><img src="images/pcb-soldering.jpg" alt="Soudure des composants sur la carte" /></div>
+          <div class="gallery-item" data-lightbox><img src="images/schema_pcb.png" alt="Schéma PCB du DrawBot A4" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt fade-section" id="galerie">
+    <div class="container">
+      <div class="section-label">08 — Galerie projet</div>
+      <h2 class="section-title">Galerie des vraies images du projet.</h2>
+      <div class="gal-grid">
+        <article class="gal-card fade-item">
+          <img src="images/robot-final.jpg" alt="Robot final prêt à dessiner" data-lightbox />
+          <h4>Machine finale</h4>
+          <p>Vue du DrawBot A4 assemblé après intégration mécanique et électronique.</p>
+        </article>
+        <article class="gal-card fade-item">
+          <img src="images/makerspace.jpg" alt="Contexte makerspace du projet" data-lightbox />
+          <h4>Contexte atelier</h4>
+          <p>Le projet a été développé dans un environnement de fabrication numérique et d’essais.</p>
+        </article>
+        <article class="gal-card fade-item">
+          <img src="images/atelier.jpg" alt="Atelier de fabrication" data-lightbox />
+          <h4>Fabrication</h4>
+          <p>Assemblage, prototypes et réglages effectués en atelier.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-section" id="viewer-3d">
+    <div class="container">
+      <div class="section-label">10 — Modèle 3D</div>
+      <h2 class="section-title">Vue 3D interactive du robot complet.</h2>
+      <p class="section-intro">Le modèle CAO assemblé (bras articulé, base, support feuille, électronique) est intégré directement depuis Sketchfab. Cliquez-glissez pour pivoter, molette pour zoomer.</p>
+      <div class="viewer3d">
+        <div class="viewer3d-head">
+          <h3>DrawBot A4 — Assemblage complet</h3>
+          <span class="viewer3d-tag">Sketchfab · CAO Onshape</span>
+        </div>
+        <div class="viewer3d-frame">
+          <iframe 
+  src="https://modelembedder.net/embed?did=e069393fab7baea4fdb59362&wvm=v&wvmid=be55d3a898ffca0521443db4&eid=e6b6ce24fbb03acfda1a5889&elementType=ASSEMBLY" 
+  width="100%" 
+  height="600" 
+  frameborder="0" 
+  allowfullscreen
+  allow="fullscreen">
+</iframe>
+
+        </div>
+        <div class="viewer3d-foot">Modèle 3D — manipulation libre. Remplacez l'URL de l'iframe par celle de votre propre modèle Sketchfab/Onshape une fois exporté.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band fade-section">
+
+    <div class="container">
+      <h2>La documentation complète est maintenant structurée comme un dossier d’ingénierie.</h2>
+      <p>La fiche technique détaille les 12 sections demandées, le tutoriel 1 → 19, les téléchargements réels, la galerie finale et les vidéos du projet.</p>
+      <div class="cta-actions">
+        <a href="fiche-technique.html" class="btn-primary">Ouvrir la fiche technique</a>
+        <a href="equipe.html" class="btn-outline">Voir l’équipe projet</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-name">DrawBot A4</span>
+        <span class="footer-sub">Projet Ingénierie · Documentation 2024</span>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Accueil</a>
+        <a href="pcb.html">Électronique</a>
+        <a href="fiche-technique.html">Fiche Technique</a>
+        <a href="equipe.html">Équipe</a>
+        <a href="explications.html">Explications</a>
+      </nav>
+      <div class="footer-copy">Documentation projet DrawBot A4</div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Agrandissement image">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">×</button>
+    <img src="" alt="" id="lightboxImg" />
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
