@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explications du DrawBot A4 — pièces mécaniques, code et logiciel, assemblage et site web, synthétisés à partir du dossier de projet." />
+  <title>DrawBot A4 — Explications</title>
+  <link rel="stylesheet" href="css/style-index.css" />
+  <link rel="stylesheet" href="css/style-equipe.css" />
+  <link rel="stylesheet" href="css/style-final.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .expl-wrap{max-width:880px;margin:0 auto;padding:0 1.15rem}
+    .expl-intro{color:#23344d;font-size:1.05rem;line-height:1.75;margin:0 0 2.5rem;font-weight:500}
+    .expl-block{padding:2.5rem 0;border-bottom:1px solid #d9e2ec}
+    .expl-block:last-child{border-bottom:none}
+    .expl-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#1d3557;background:#e0ecff;padding:.4rem .9rem;border-radius:4px;margin-bottom:1rem;font-weight:600}
+    .expl-h2{font-family:'Lora',serif;font-size:clamp(1.6rem,2.4vw,2.2rem);font-weight:700;margin:0 0 1.1rem;line-height:1.25;color:#0f172a}
+    .expl-block h3{font-family:'Lora',serif;font-size:clamp(1.1rem,1.6vw,1.25rem);margin:1.8rem 0 .6rem;color:#1d3557;font-weight:700}
+    .expl-block p{line-height:1.8;margin:.75rem 0;color:#23344d;font-size:1rem}
+    .expl-block ul{padding-left:1.3rem;line-height:1.8;color:#23344d;margin:.5rem 0 1rem}
+    .expl-block li{margin:.5rem 0}
+    .expl-block strong{color:#0f172a;font-weight:600}
+    .expl-block code{background:#edf2f7;color:#1d3557;padding:.1rem .4rem;border-radius:4px;font-family:'DM Mono',monospace;font-size:.9em}
+    .expl-video{margin:1.5rem 0 .5rem;border-radius:8px;overflow:hidden;background:#0f172a;border:1px solid #d9e2ec;box-shadow:0 10px 30px rgba(15,23,42,.12)}
+    .expl-video video{display:block;width:100%;height:auto}
+    .expl-video-cap{font-size:.85rem;color:#64748b;margin:.5rem 0 0;font-family:'DM Mono',monospace;text-align:center}
+    @media (max-width: 640px){
+      .expl-block{padding:1.75rem 0}
+      .expl-block p, .expl-block ul{font-size:.97rem}
+      .expl-wrap{padding:0 .25rem}
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-name">DrawBot A4</span>
+        <span class="brand-sub">Documentation open-source</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Accueil</a></li>
+        <li><a href="pcb.html" class="nav-link">Électronique</a></li>
+        <li><a href="fiche-technique.html" class="nav-link">Fiche Technique</a></li>
+        <li><a href="equipe.html" class="nav-link">Équipe</a></li>
+        <li><a href="explications.html" class="nav-link active">Explications</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="pcb.html">Électronique</a></li>
+      <li><a href="fiche-technique.html">Fiche Technique</a></li>
+      <li><a href="equipe.html">Équipe</a></li>
+      <li><a href="explications.html">Explications</a></li>
+    </ul>
+  </div>
+
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Accueil</a><span class="bc-sep">/</span><span>Explications</span></div>
+      <h1 class="page-title">Explications techniques</h1>
+      <p class="page-sub">Une lecture synthétique du projet : comment chaque grand bloc a été pensé, conçu puis assemblé.</p>
+    </div>
+  </header>
+
+  <section class="section fade-section">
+    <div class="container">
+      <div class="expl-wrap">
+        <p class="expl-intro">
+          Cette page reprend les grandes étapes du DrawBot A4 — la mécanique, la chaîne logicielle, l'assemblage et la documentation web — sous une forme synthétique. L'objectif n'est pas de re-publier le dossier, mais d'expliquer en quelques paragraphes <strong>pourquoi</strong> nous avons fait les choses ainsi et <strong>comment</strong> le projet a été mené, du bout à l'autre, en équipe.
+        </p>
+
+        <!-- 1. PIÈCES -->
+        <article class="expl-block">
+          <span class="expl-tag">01 — Pièces</span>
+          <h2 class="expl-h2">Pièces mécaniques</h2>
+          <p>La partie mécanique du DrawBot s'organise autour de deux bras articulés mis en mouvement par deux moteurs, d'un support feuille A4 et d'un porte-stylo. Chaque sous-ensemble a été modélisé sous Onshape, imprimé en 3D pour les pièces structurelles, et découpé à l'imprimante laser pour les planches et le support feuille.</p>
+
+          <h3>Poulies, bras et courroies</h3>
+          <p>Les poulies fournies avec le kit se sont rapidement révélées insuffisantes pour transmettre proprement le mouvement. Nous avons donc redessiné un système avec <strong>roulements</strong> et des poulies de plus grand diamètre. Le vrai défi a été le dimensionnement précis du logement des roulements, pour bloquer la bague intérieure (qui joue le rôle d'axe) sans écraser les mauvaises bagues. Pour ça, une <strong>rondelle conique</strong> sur-élève la poulie et applique la pression au bon endroit, et un anneau intermédiaire comble le vide entre les deux roulements.</p>
+          <p>Les bras finaux sont au nombre de trois (un fixe en bas, deux mobiles au-dessus). La poulie est solidarisée au bras mobile, l'axe est vissé par-dessous sur le bras fixe. Une ouverture de <strong>19 mm</strong> garantit l'appui sur les bonnes bagues, et les fixations du support moteur sont intégrées directement au bras pour éviter une pièce supplémentaire. La courroie, de type ouvert, est refermée par de petites <strong>bagues de jonction</strong> imprimées, assez compactes pour passer librement dans le mécanisme.</p>
+
+          <h3>Supports moteurs et planches</h3>
+          <p>Les deux moteurs sont placés sur le même axe vertical pour éviter tout déséquilibre. Deux supports moteurs différents ont été nécessaires : le premier avec la partie tournante vers le bas (pour le bras du haut), le second avec la partie tournante vers le haut, parce que le bras du bas ne pouvait pas tourner avec le premier modèle. Les planches qui forment les bras ont demandé de <strong>nombreux prototypes</strong>, le temps de stabiliser l'emplacement exact des pièces imprimées et des fixations.</p>
+
+          <h3>Porte-stylo</h3>
+          <p>Le porte-stylo a évolué d'un simple coulissement 3D à un mécanisme à <strong>vis lisses</strong> actionné par un servomoteur via un système de levier (inspiré d'un projet de l'année précédente). Le support du stylo est resté réglable pour accepter n'importe quel modèle. Un clip d'épaisseur adaptée fixe l'ensemble sur la planche.</p>
+
+          <h3>Support feuille, angles, clapet et charnières</h3>
+          <p>Le support feuille A4 (21 × 29,7 cm) est <strong>découpé au laser</strong>, avec des trous positionnés par atelier de pièce en contexte pour s'aligner sur la base de la machine. Quatre angles en L imprimés en 3D, avec inserts vissés par le dessous, définissent l'emplacement de la feuille sans vis apparentes. Un clapet vient s'encastrer dans ces angles pour plaquer la feuille et éviter qu'elle ne se plisse sous la friction du stylo. Deux charnières en deux parties (3 colonnes d'un côté, 2 de l'autre) traversées par une longue vis font office de pivot entre le support et le clapet.</p>
+        </article>
+
+        <!-- 2. CODE -->
+        <article class="expl-block">
+          <span class="expl-tag">02 — Code</span>
+          <h2 class="expl-h2">Chaîne logicielle et firmware</h2>
+          <p>La chaîne logicielle transforme une image en mouvements moteur. Elle suit toujours la même séquence : <strong>image → SVG → GCODE → liaison série → FluidNC → moteurs</strong>. Plusieurs outils ont été testés avant de stabiliser l'interface finale.</p>
+
+          <h3>De l'image au GCODE</h3>
+          <p>La première version utilisait <strong>Inkscape</strong> pour vectoriser une image en SVG, puis <strong>Processing</strong> pour relire ce SVG, échantillonner les points le long du tracé et produire un fichier <strong>GCODE</strong> (coordonnées des points + commandes lever / descendre le stylo). Cette chaîne fonctionnait mais restait peu pratique.</p>
+          <p>Nous sommes ensuite passés à une interface web maison, écrite en <strong>HTML / CSS / JavaScript</strong>, basée sur <strong>p5.js</strong> (équivalent de Processing en JS) et <strong>imagetracer.js</strong> (équivalent d'Inkscape). Tout se fait dans le navigateur : import d'une image, conversion en SVG avec réglages (seuil de luminosité, détection de contour, inversion, niveau de détail, lissage), génération du GCODE, et envoi en série vers la carte.</p>
+
+          <h3>Fonctions de l'interface</h3>
+          <ul>
+            <li>Charger une image et la convertir en SVG selon plusieurs critères de tracé.</li>
+            <li>Construire un fichier GCODE à partir du SVG, ou rejouer un GCODE existant.</li>
+            <li>Communiquer en série avec la carte, ligne par ligne, pour piloter les déplacements.</li>
+            <li>Régler les paramètres moteurs (taille des bras, type de moteurs, format du papier).</li>
+            <li>Un <strong>simulateur</strong> affiche en direct ce que la machine est censée tracer, utile pour anticiper le rendu et le temps de production.</li>
+          </ul>
+
+          <h3>Firmware ESP32</h3>
+          <p>Côté carte, l'ESP32 fait tourner <strong>FluidNC</strong>, un firmware open-source qui lit la configuration machine dans un <code>config.yaml</code> puis interprète le GCODE reçu pour piloter les moteurs pas-à-pas. Cette couche évite de réécrire un contrôleur de mouvement complet : on se concentre sur la génération du GCODE et le réglage des axes.</p>
+        </article>
+
+        <!-- 3. ASSEMBLAGE -->
+        <article class="expl-block">
+          <span class="expl-tag">03 — Assemblage</span>
+          <h2 class="expl-h2">Assemblage et fabrication</h2>
+          <p>Le montage assemble dans l'ordre les planches découpées au laser, les pièces imprimées en 3D, les deux moteurs et leurs supports, les bras articulés avec poulies à roulements, la courroie refermée par les bagues de jonction, le porte-stylo à vis lisses et son servomoteur, puis le support feuille avec ses angles, son clapet et ses charnières. La carte électronique et le bouton d'arrêt d'urgence sont fixés sur leur support dédié.</p>
+          <p>Une part importante du travail a été itérative : les premiers prototypes de bras et de support moteur ont permis de fixer les bonnes cotes (logement de roulement, ouverture 19 mm, position des fixations) avant d'arriver à la version finale. La même logique a été appliquée au porte-stylo et aux pièces de maintien de la machine, pour stabiliser l'ensemble malgré le poids déporté côté stylo.</p>
+
+          <div class="expl-video">
+            <video controls preload="metadata" poster="images/atelier.jpg">
+              <source src="videos/assemblage.mp4" type="video/mp4" />
+              Votre navigateur ne lit pas la vidéo HTML5.
+            </video>
+          </div>
+          <p class="expl-video-cap">Vidéo d'assemblage de la machine.</p>
+        </article>
+
+        <!-- 4. SITE WEB -->
+        <article class="expl-block">
+          <span class="expl-tag">04 — Site web</span>
+          <h2 class="expl-h2">Site web et documentation</h2>
+          <p>Le site sert de support de documentation pour tout le projet : présenter la machine, expliquer le workflow image → tracé, et regrouper les livrables techniques (pièces, électronique, fiche technique, vidéos). Il a été pensé clair, sobre et lisible plutôt que démonstratif.</p>
+
+          <h3>Stack technique</h3>
+          <ul>
+            <li><strong>HTML5</strong> sémantique — une page par grande section (accueil, électronique, fiche technique, équipe, explications).</li>
+            <li><strong>CSS3</strong> modulaire — un fichier par page (<code>style-index.css</code>, <code>style-pcb.css</code>, <code>style-fiche.css</code>, <code>style-equipe.css</code>), un fichier global de tokens (<code>base.css</code>) et un fichier de corrections finales (<code>style-final.css</code>).</li>
+            <li><strong>JavaScript vanilla</strong> — un seul fichier <code>script.js</code> pour la navigation mobile, l'apparition au scroll (IntersectionObserver) et la lightbox d'images.</li>
+            <li><strong>Typographie</strong> Lora pour les titres, DM Sans pour le corps, DM Mono pour le code, chargées via Google Fonts.</li>
+          </ul>
+
+          <h3>Démarche</h3>
+          <p>L'identité visuelle est volontairement sombre, rouge / noir, pour donner un ton industriel cohérent avec un projet d'ingénierie. Chaque page reprend les mêmes composants : barre de navigation fixe, en-tête avec fil d'Ariane, sections numérotées, grilles responsives et pied de page commun. Le site est <strong>responsive</strong> dès le départ (mobile, tablette, écran large) avec des points de rupture à 768 px, 1100 px et 1350 px. Les images s'agrandissent dans une <strong>lightbox</strong>, et les vidéos utilisent la balise <code>&lt;video&gt;</code> native.</p>
+          <p>Au-delà du code, l'intégration a consisté à rassembler tous les contenus produits par l'équipe — photos de pièces, vidéos d'assemblage et de dessin, captures Onshape, schémas KiCad, descriptions techniques — et à assurer la cohérence du dossier (textes, structure, hiérarchie) jusqu'à la mise en ligne.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><span class="footer-name">DrawBot A4</span><span class="footer-sub">Explications techniques</span></div>
+      <nav class="footer-nav">
+        <a href="index.html">Accueil</a>
+        <a href="pcb.html">Électronique</a>
+        <a href="fiche-technique.html">Fiche Technique</a>
+        <a href="equipe.html">Équipe</a>
+        <a href="explications.html">Explications</a>
+      </nav>
+      <div class="footer-copy">Explications du projet DrawBot A4</div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
